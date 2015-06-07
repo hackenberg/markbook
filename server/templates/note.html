@@ -1,0 +1,9 @@
+{% extends "layout.html" %}
+
+{% block head %}
+    <title>{{ note.title }}</title>
+{% endblock %}
+
+{% block body %}
+    {{ note.html|safe }}
+{% endblock %}

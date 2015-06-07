@@ -1,0 +1,14 @@
+{% extends "layout.html" %}
+
+{% block head %}
+    <title>Index</title>
+{% endblock %}
+
+{% block body %}
+    <h1>Notebook</h1>
+    <ul>
+        {% for note in notes %}
+            <li><a href="notes/{{ note.id }}">{{ note.title }}</a></li>
+        {% endfor %}
+    </ul>
+{% endblock %}

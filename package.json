@@ -1,0 +1,15 @@
+{
+  "name": "markbook",
+  "version": "0.0.1",
+  "description": "TODO",
+  "main": "main.py",
+  "dependencies": {
+    "github-markdown-css": "^2.0.8"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "python -m unittest discover tests"
+  },
+  "author": "Lukas Hackenberg",
+  "license": "MIT"
+}
