@@ -22,7 +22,7 @@ init:
 package:
 	python setup.py sdist
 	cp PKGBUILD dist/PKGBUILD
-	cd dist && makepkg -g >> PKGBUILD && makepkg
+	cd dist && makepkg -g >> PKGBUILD && makepkg -f
 
 test:
 	python setup.py test

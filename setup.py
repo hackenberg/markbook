@@ -5,7 +5,7 @@ setup(
     version="0.0.1",
     packages=find_packages(exclude=("tests",)),
     include_package_data = True,
-    install_requires=["flask", "markdown"],
+    install_requires=["flask", "flask_sqlalchemy", "markdown"],
     entry_points={
         "console_scripts": [
             "markbook = main:main",

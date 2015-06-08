@@ -1,6 +1,7 @@
-import markdown
 import os
 import tempfile
+
+import markdown
 
 from markbook import db
 from markbook.models import Note

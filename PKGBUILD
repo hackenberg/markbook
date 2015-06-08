@@ -14,18 +14,12 @@ pkgdesc="TODO"
 arch=('any')
 url=""
 license=('MIT')
-depends=('python')
+depends=('python' 'python-flask' 'python-flask-sqlalchemy' 'python-markdown')
 makedepends=('python-setuptools')
 provides=('markbook')
 source=("$pkgname-$pkgver.tar.gz")
 
-#build() {
-#  cd "$pkgname-$pkgver"
-#  python setup.py build
-#}
-
 package() {
-  depends=('python-flask', 'python-markdown')
   cd "$pkgname-$pkgver"
   python setup.py install --root="$pkgdir" --optimize=1
 }
