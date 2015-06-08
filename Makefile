@@ -21,6 +21,8 @@ init:
 
 package:
 	python setup.py sdist
+	cp PKGBUILD dist/PKGBUILD
+	cd dist && makepkg -g >> PKGBUILD && makepkg
 
 test:
-	@python -m unittest discover tests
+	python setup.py test
