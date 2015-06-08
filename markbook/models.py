@@ -1,4 +1,4 @@
-from server import db
+from markbook import db
 
 
 class Note(db.Model):

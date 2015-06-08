@@ -1,7 +1,7 @@
 from flask import render_template, request
 
-from server import app
-from server.models import Note
+from markbook import app
+from markbook.models import Note
 
 
 @app.route("/", methods=["GET"])

@@ -2,8 +2,8 @@ import markdown
 import os
 import tempfile
 
-from server import db
-from server.models import Note
+from markbook import db
+from markbook.models import Note
 
 
 def open_note(title):

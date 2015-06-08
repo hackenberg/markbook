@@ -3,8 +3,8 @@ import argparse
 import sys
 import webbrowser
 
-from server import app, db
-import server.util
+from markbook import app, db
+import markbook.util
 
 
 def init():
@@ -36,7 +36,7 @@ def main():
     if args.start_server:
         app.run()
     elif args.command == "on":
-        server.util.open_note(args.title)
+        markbook.util.open_note(args.title)
     elif args.command == "nb":
         webbrowser.open_new_tab("http://localhost:5000")
         app.run()

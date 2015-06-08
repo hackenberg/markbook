@@ -2,18 +2,18 @@ import os
 import unittest
 import tempfile
 
-import server
-from server.models import Note
+import markbook
+from markbook.models import Note
 
 
 class DatabaseTestCase(unittest.TestCase):
 
     def setUp(self):
         self.db_fd, self.db_path = tempfile.mkstemp()
-        server.app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///" + self.db_path
-        server.app.config["TESTING"] = True
-        self.app = server.app.test_client()
-        self.db = server.db
+        markbook.app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///" + self.db_path
+        markbook.app.config["TESTING"] = True
+        self.app = markbook.app.test_client()
+        self.db = markbook.db
         self.db.create_all()
 
     def tearDown(self):
