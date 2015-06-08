@@ -19,6 +19,8 @@ def parse_args(args):
     nb_parser = subparsers.add_parser("nb")
 
     parser.add_argument("--init", action="store_true", help="Help (TODO)")
+    parser.add_argument("--start-server", dest="start_server",
+                        action="store_true", help="Help (TODO)")
 
     on_parser.add_argument("title", help="Help (TODO)")
 
@@ -30,6 +32,9 @@ def main():
 
     if args.init:
         init()
+
+    if args.start_server:
+        app.run()
     elif args.command == "on":
         server.util.open_note(args.title)
     elif args.command == "nb":
