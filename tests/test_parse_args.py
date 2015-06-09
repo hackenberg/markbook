@@ -1,6 +1,6 @@
 import unittest
 
-from main import parse_args
+from markbook.cmdline import parse_args
 
 
 class ParseArgsTestCase(unittest.TestCase):

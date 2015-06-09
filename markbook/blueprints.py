@@ -1,4 +1,4 @@
-from flask import Blueprint, jsonify, request
+from flask import Blueprint, jsonify
 
 from markbook.models import Note
 
@@ -29,7 +29,6 @@ def api_notes():
 
 @api.route("/api/v1/notes/<int:id>", methods=["GET"])
 def api_get_note(id):
-    fmt = "http://localhost:5000/api/v1/notes/{}"
     result = Note.query.get(id)
     note = {
         "title": result.title,
