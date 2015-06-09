@@ -39,5 +39,3 @@ def main():
     elif args.command == "nb":
         webbrowser.open_new_tab("http://localhost:5000")
         app.run()
-    else:
-        parse_args(["--help"])

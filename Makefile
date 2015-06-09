@@ -14,7 +14,9 @@ clean-pyc:
 	find . -type d -name "__pycache__" -delete
 
 flake8:
-	@python setup.py flake8
+	-@python setup.py flake8
+	-@flake8 setup.py
+	-@flake8 tests
 
 init:
 	python main.py --init
