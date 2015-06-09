@@ -18,3 +18,8 @@ def test_insert_note(server, db):
     assert result.title == note.title
     assert result.text == note.text
     assert result.html == note.html
+
+
+def test_repr_note():
+    note = Note("DEFAULT_TITLE", "DEFAULT_TEXT", "DEFAULT_ HTML")
+    assert str(note) == "<Note DEFAULT_TITLE>"

@@ -10,6 +10,9 @@
 /dist/
 *.egg-info/
 
+# coverage
+/.coverage
+
 # Editor & IDE
 /.idea/
 *.swp
