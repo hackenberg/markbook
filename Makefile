@@ -25,4 +25,4 @@ package:
 	cd dist && makepkg -g >> PKGBUILD && makepkg -f
 
 test:
-	python setup.py test
+	python setup.py test --pytest-args=tests
