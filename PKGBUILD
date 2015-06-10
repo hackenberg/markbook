@@ -14,7 +14,10 @@ pkgdesc="TODO"
 arch=('any')
 url=""
 license=('MIT')
-depends=('python' 'python-flask' 'python-flask-sqlalchemy' 'python-markdown')
+depends=(
+  'python' 'python-flask' 'python-flask-script' 'python-flask-sqlalchemy'
+  'python-markdown'
+)
 makedepends=('python-setuptools')
 provides=('markbook')
 source=("$pkgname-$pkgver.tar.gz")

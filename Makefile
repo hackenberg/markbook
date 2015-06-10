@@ -18,7 +18,7 @@ coverage:
 
 flake8:
 	-@python setup.py flake8
-	-@flake8 setup.py
+	-@flake8 main.py setup.py
 	-@flake8 tests
 
 init:

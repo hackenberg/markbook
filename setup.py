@@ -30,11 +30,11 @@ setup(
     include_package_data=True,
     entry_points={
         "console_scripts": [
-            "markbook = markbook:cmdline.main",
+            "markbook = markbook.manage:main",
         ],
     },
     cmdclass={"test": PyTest},
-    install_requires=["flask", "flask_sqlalchemy", "markdown"],
+    install_requires=["flask", "flask_script", "flask_sqlalchemy", "markdown"],
     tests_require=["pytest"],
     license="MIT",
     zip_safe=False,
