@@ -15,8 +15,9 @@ db = SQLAlchemy(app)
 manager = Manager(app)
 
 # blueprints
-from markbook.blueprints import api
-app.register_blueprint(api)
+if app.config["API"]:
+    from markbook.blueprints import api
+    app.register_blueprint(api)
 
 # error handlers
 # TODO

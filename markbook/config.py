@@ -7,6 +7,7 @@ maindir = os.path.join(homedir, ".markbook")
 
 class BaseConfig:
 
+    API = True
     DEBUG = False
     JSON_AS_ASCII = False
 
@@ -19,6 +20,7 @@ class DevelopmentConfig(BaseConfig):
 
 class ProductionConfig(BaseConfig):
 
+    API = False
     DEBUG = False
     SQLALCHEMY_DATABASE_URI = "sqlite:///" + os.path.join(maindir, "prod.db")
 
