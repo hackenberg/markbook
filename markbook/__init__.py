@@ -1,4 +1,5 @@
 from flask import Flask
+from flask_script import Manager
 from flask_sqlalchemy import SQLAlchemy
 
 from markbook.config import DevelopmentConfig
@@ -11,6 +12,7 @@ app.config.from_object(DevelopmentConfig)
 
 # extensions
 db = SQLAlchemy(app)
+manager = Manager(app)
 
 # blueprints
 from markbook.blueprints import api

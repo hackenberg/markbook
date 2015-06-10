@@ -2,13 +2,8 @@
 
 import webbrowser
 
-from flask_script import Manager
-
-from markbook import app, db
+from markbook import app, db, manager
 from markbook.util import open_note
-
-
-manager = Manager(app)
 
 
 @manager.command
