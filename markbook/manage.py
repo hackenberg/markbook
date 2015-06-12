@@ -1,14 +1,14 @@
-#!/usr/bin/env python3
-
+import sys
 import webbrowser
+
+from alembic.util import CommandError
+from flask_migrate import MigrateCommand
 
 from markbook import app, db, manager
 from markbook.util import open_note
 
 
-@manager.command
-def init():
-    db.create_all()
+manager.add_command("db", MigrateCommand)
 
 
 @manager.command
@@ -23,4 +23,7 @@ def notebook():
 
 
 def main():
-    manager.run()
+    try:
+        manager.run()
+    except CommandError as e:
+        print(e, file=sys.stderr)

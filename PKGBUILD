@@ -15,8 +15,8 @@ arch=('any')
 url=""
 license=('custom')
 depends=(
-  'python' 'python-flask' 'python-flask-script' 'python-flask-sqlalchemy'
-  'python-markdown'
+  'python' 'python-flask' 'python-flask-migrate' 'python-flask-script'
+  'python-flask-sqlalchemy' 'python-markdown'
 )
 makedepends=('python-setuptools')
 provides=("$pkgname")

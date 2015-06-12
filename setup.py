@@ -34,7 +34,10 @@ setup(
         ],
     },
     cmdclass={"test": PyTest},
-    install_requires=["flask", "flask_script", "flask_sqlalchemy", "markdown"],
+    install_requires=[
+        "flask", "flask_migrate", "flask_script", "flask_sqlalchemy",
+        "markdown",
+    ],
     tests_require=["pytest"],
     license="MIT",
     zip_safe=False,

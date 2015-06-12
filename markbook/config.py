@@ -15,6 +15,7 @@ class DevelopmentConfig(BaseConfig):
 
     DEBUG = True
     SQLALCHEMY_DATABASE_URI = "sqlite:///" + os.path.join(_tempdir, "dev.db")
+    SQLALCHEMY_MIGRATE_REPO = os.path.join(_tempdir, "migrations")
 
 
 class ProductionConfig(BaseConfig):
@@ -24,6 +25,7 @@ class ProductionConfig(BaseConfig):
     API = False
     DEBUG = False
     SQLALCHEMY_DATABASE_URI = "sqlite:///" + os.path.join(_maindir, "prod.db")
+    SQLALCHEMY_MIGRATE_REPO = os.path.join(_maindir, "migrations")
 
 
 class TestingConfig(BaseConfig):
