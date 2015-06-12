@@ -1,11 +1,10 @@
 # Project
 /tmp/
 
-# Python
-*.pyc
-*.pyo
+# byte-compiled / optimized / DLL files
+*.py[cod]
 
-# setuptools
+# distribution / packaging
 /build/
 /dist/
 *.egg-info/
@@ -13,10 +12,10 @@
 # coverage
 /.coverage
 
-# Editor & IDE
-/.idea/
-*.swp
-
 # npm
 /node_modules/
 *.log
+
+# Editor & IDE
+/.idea/
+*.swp
