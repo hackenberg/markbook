@@ -13,7 +13,7 @@ pkgrel=1
 pkgdesc="TODO"
 arch=('any')
 url=""
-license=('MIT')
+license=('custom')
 depends=(
   'python' 'python-flask' 'python-flask-script' 'python-flask-sqlalchemy'
   'python-markdown'
@@ -25,6 +25,7 @@ source=("${pkgname}-${pkgver}.tar.gz")
 package() {
   cd "${pkgname}-${pkgver}"
   python setup.py install --root="$pkgdir" --optimize=1
+  install -D -m644 LICENSE "${pkgdir}/usr/share/licenses/${pkgname}/LICENSE"
 }
 
 # vim:set ts=2 sw=2 et:

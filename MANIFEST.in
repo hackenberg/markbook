@@ -1,2 +1,3 @@
+include LICENSE
 recursive-include markbook/static *
 recursive-include markbook/templates *
