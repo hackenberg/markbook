@@ -1,8 +1,6 @@
 import os
 
-basedir = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
-homedir = os.path.expanduser("~")
-maindir = os.path.join(homedir, ".markbook")
+_basedir = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 
 
 class BaseConfig:
@@ -13,16 +11,19 @@ class BaseConfig:
 
 
 class DevelopmentConfig(BaseConfig):
+    _tempdir = os.path.join(_basedir, "tmp")
 
     DEBUG = True
-    SQLALCHEMY_DATABASE_URI = "sqlite:///" + os.path.join(basedir, "dev.db")
+    SQLALCHEMY_DATABASE_URI = "sqlite:///" + os.path.join(_tempdir, "dev.db")
 
 
 class ProductionConfig(BaseConfig):
+    _homedir = os.path.expanduser("~")
+    _maindir = os.path.join(_homedir, ".markbook")
 
     API = False
     DEBUG = False
-    SQLALCHEMY_DATABASE_URI = "sqlite:///" + os.path.join(maindir, "prod.db")
+    SQLALCHEMY_DATABASE_URI = "sqlite:///" + os.path.join(_maindir, "prod.db")
 
 
 class TestingConfig(BaseConfig):

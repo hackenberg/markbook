@@ -19,11 +19,11 @@ depends=(
   'python-markdown'
 )
 makedepends=('python-setuptools')
-provides=('markbook')
-source=("$pkgname-$pkgver.tar.gz")
+provides=("$pkgname")
+source=("${pkgname}-${pkgver}.tar.gz")
 
 package() {
-  cd "$pkgname-$pkgver"
+  cd "${pkgname}-${pkgver}"
   python setup.py install --root="$pkgdir" --optimize=1
 }
 
