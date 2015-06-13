@@ -26,6 +26,7 @@ class PyTest(TestCommand):
 setup(
     name="markbook",
     version="0.0.1",
+    url="https://github.com/hackenberg/markbook",
     packages=find_packages(exclude=("tests",)),
     include_package_data=True,
     entry_points={

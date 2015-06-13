@@ -12,20 +12,32 @@ pkgver=0.0.1
 pkgrel=1
 pkgdesc="TODO"
 arch=('any')
-url=""
+url="https://github.com/hackenberg/markbook"
 license=('custom')
 depends=(
   'python' 'python-flask' 'python-flask-migrate' 'python-flask-script'
   'python-flask-sqlalchemy' 'python-markdown'
 )
-makedepends=('python-setuptools')
-provides=("$pkgname")
-source=("${pkgname}-${pkgver}.tar.gz")
+makedepends=('git' 'python-setuptools')
+checkdepends=('python-pytest')
+provides=('markbook')
+source=("${pkgname}::git+https://github.com/hackenberg/markbook.git")
+md5sums=('SKIP')
+
+check() {
+  cd "$pkgname"
+  python setup.py test --pytest-args=tests
+}
 
 package() {
-  cd "${pkgname}-${pkgver}"
+  cd "$pkgname"
   python setup.py install --root="$pkgdir" --optimize=1
   install -D -m644 LICENSE "${pkgdir}/usr/share/licenses/${pkgname}/LICENSE"
+}
+
+pkgver() {
+  cd "$pkgname"
+  printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
 }
 
 # vim:set ts=2 sw=2 et:
