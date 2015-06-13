@@ -1,15 +1,18 @@
+import os
+
 from flask import Flask
 from flask_migrate import Migrate
 from flask_script import Manager
 from flask_sqlalchemy import SQLAlchemy
 
-from markbook.config import DevelopmentConfig
+from markbook import config
 
 
 app = Flask(__name__)
 
 # config
-app.config.from_object(DevelopmentConfig)
+profile = os.getenv("MARKBOOK_SETTINGS", "DevelopmentConfig")
+app.config.from_object(getattr(config, profile))
 
 # extensions
 db = SQLAlchemy(app)

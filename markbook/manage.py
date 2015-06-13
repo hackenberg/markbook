@@ -4,7 +4,7 @@ import webbrowser
 from alembic.util import CommandError
 from flask_migrate import MigrateCommand
 
-from markbook import app, db, manager
+from markbook import app, manager
 from markbook.util import open_note
 
 

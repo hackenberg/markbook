@@ -1,20 +1,21 @@
-.PHONY: all build clean clean-pyc coverage flake8 package test
+.PHONY: all build clean clean-pyc cov flake8 package test
 
-all: test coverage flake8
+all: cov flake8
 
 build:
 	python setup.py build
 
 clean: clean-pyc
-	rm -rf build/ dist/ *.egg-info/ .coverage
+	rm -rf *.egg-info/ build/ dist/ tmp/ .coverage
 
 clean-pyc:
 	find . -type f -name "*.pyc" -delete
 	find . -type f -name "*.pyo" -delete
 	find . -type d -name "__pycache__" -delete
 
-coverage:
-	@python -m coverage report -m
+cov:
+	python -m coverage run --source markbook setup.py test --pytest-args=tests
+	python -m coverage report -m
 
 flake8:
 	-@python setup.py flake8
@@ -22,12 +23,14 @@ flake8:
 	-@flake8 tests
 
 init:
-	python main.py --init
+	python main.py db init
+	python main.py db migrate
+	python main.py db upgrade
 
 package:
-	python setup.py sdist
+	mkdir -p dist
 	cp PKGBUILD dist/PKGBUILD
-	cd dist && makepkg -g >> PKGBUILD && makepkg -f
+	cd dist && makepkg -f
 
 test:
-	python -m coverage run --source markbook setup.py test --pytest-args=tests
+	python setup.py test --pytest-args=tests
