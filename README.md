@@ -19,21 +19,21 @@ $ export MARKBOOK_SETTINGS="DevelopmentConfig"
 ### Create Database
 
 ```sh
-python main.py db init
-python main.py db migrate
-python main.py db upgrade
+$ python main.py db init
+$ python main.py db migrate
+$ python main.py db upgrade
 ```
 
 ### Run
 
 ```sh
-python main.py notebook
+$ python main.py notebook
 ```
 
 or
 
 ```sh
-python main.py on
+$ python main.py on
 ```
 
 ### Testing
