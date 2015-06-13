@@ -18,9 +18,9 @@ def api_routes():
 
 @api.route("/api/v1/notes", methods=["GET"])
 def api_notes():
-    fmt = "http://localhost:5000/api/v1/notes/{}"
+    url = "http://localhost:5000/api/v1/notes/{}"
     results = Note.query.order_by(Note.id)
-    notes = [fmt.format(note.id) for note in results]
+    notes = [url.format(note.id) for note in results]
     meta = {
         "total": results.count()
     }
@@ -33,6 +33,5 @@ def api_get_note(id):
     note = {
         "title": result.title,
         "text": result.text,
-        "html": result.html
     }
     return jsonify({"note": note})

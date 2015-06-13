@@ -1,8 +1,6 @@
 import os
 import tempfile
 
-import markdown
-
 from markbook import db
 from markbook.models import Note
 
@@ -19,8 +17,7 @@ def open_note(title):
         text = f.read()
     if note:
         note.text = text
-        note.html = markdown.markdown(text)
     else:
-        db.session.add(Note(title, text, markdown.markdown(text)))
+        db.session.add(Note(title, text))
     db.session.commit()
     os.unlink(path)
