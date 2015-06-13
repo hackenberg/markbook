@@ -8,7 +8,7 @@
   },
   "devDependencies": {},
   "scripts": {
-    "test": "python -m unittest discover tests"
+    "test": "python setup.py test --pytest-args=tests"
   },
   "author": "Lukas Hackenberg",
   "license": "MIT"
