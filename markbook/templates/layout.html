@@ -18,7 +18,7 @@
     <article class="markdown-body">
         {% block body %}{% endblock %}
         <hr></hr>
-        <a href="/shutdown">close</a>
+        <a href="{{ url_for('shutdown') }}">close</a>
     </article>
 </body>
 </html>
