@@ -24,8 +24,5 @@ if app.config["API"]:
     from markbook.blueprints import api
     app.register_blueprint(api)
 
-# error handlers
-# TODO
-
 # views
 import markbook.views
