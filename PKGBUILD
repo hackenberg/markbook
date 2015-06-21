@@ -8,7 +8,7 @@
 
 # Maintainer: Your Name <youremail@domain.com>
 pkgname=markbook
-pkgver=0.0.1
+pkgver=0.1
 pkgrel=1
 pkgdesc="TODO"
 arch=('any')
