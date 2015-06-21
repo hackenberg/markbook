@@ -1,7 +1,7 @@
 from markbook.models import Note
 
 
-def test_delete_note(server, db):
+def test_delete_note(session, db):
     note = Note("DELETE_TITLE", "DELETE_TEXT")
     db.session.add(note)
     db.session.commit()
@@ -10,7 +10,7 @@ def test_delete_note(server, db):
     assert Note.query.get(note.id) is None
 
 
-def test_insert_note(server, db):
+def test_insert_note(session, db):
     note = Note("INSERT_TITLE", "INSERT_TEXT")
     db.session.add(note)
     db.session.commit()
