@@ -10,7 +10,7 @@ api = Blueprint('api', __name__)
 def api_routes():
     versions = {
         "v1": {
-            "notes_url": "http://localhost:5000/api/v1/notes/"
+            "notes_url": "http://localhost:5000/api/v1/notes"
         }
     }
     return jsonify({"versions": versions})

@@ -5,9 +5,9 @@ import markbook.config
 
 
 @pytest.fixture
-def server(request, scope="module"):
+def session(request, scope="module"):
     markbook.app.config.from_object("markbook.config.TestingConfig")
-    app = markbook.app.test_client()
+    session = markbook.app.test_client()
     db = markbook.db
     db.create_all()
 
@@ -16,7 +16,12 @@ def server(request, scope="module"):
         db.drop_all()
 
     request.addfinalizer(finalizer)
-    return app
+    return session
+
+
+@pytest.fixture
+def app(scope="module"):
+    return markbook.app
 
 
 @pytest.fixture
