@@ -5,6 +5,12 @@ from markbook import db
 from markbook.models import Note
 
 
+def list_notes():
+    rows = Note.query.order_by(Note.title)
+    for row in rows:
+        print(row.title)
+
+
 def open_note(title):
     fd, path = tempfile.mkstemp(suffix=title)
     os.close(fd)

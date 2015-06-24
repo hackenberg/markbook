@@ -5,14 +5,19 @@ from alembic.util import CommandError
 from flask_migrate import MigrateCommand
 
 from markbook import app, manager
-from markbook.util import open_note
+from markbook.util import list_notes, open_note
 
 
 manager.add_command("db", MigrateCommand)
 
 
 @manager.command
-def on(note_title):
+def list():
+    list_notes()
+
+
+@manager.command
+def open(note_title):
     open_note(note_title)
 
 
