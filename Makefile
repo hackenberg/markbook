@@ -6,7 +6,7 @@ build:
 	python setup.py build
 
 clean: clean-pyc
-	rm -rf *.egg-info/ build/ dist/ tmp/ .coverage
+	rm -rf *.egg-info/ build/ dist/ database/dev.db .coverage
 
 clean-pyc:
 	find . -type f -name "*.pyc" -delete
@@ -23,9 +23,12 @@ flake8:
 	-@flake8 tests
 
 init:
-	python main.py db init
-	python main.py db migrate
-	python main.py db upgrade
+	java -jar /opt/liquibase/liquibase.jar \
+		--driver=org.sqlite.JDBC \
+		--classpath=/usr/share/java/sqlite-jdbc/sqlite-jdbc.jar \
+		--changeLogFile=database/changelog/db.changelog-master.xml \
+		--url="jdbc:sqlite:database/dev.db" \
+		migrate
 
 package:
 	mkdir -p dist

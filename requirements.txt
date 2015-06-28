@@ -1,5 +1,4 @@
 Flask==0.10.1
-Flask-Migrate==1.4.0
 Flask-Script>=0.6.7
 Flask-SQLAlchemy==2.0
 itsdangerous==0.24
